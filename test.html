@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    asdasdasdasd
+    <div id='test'></div>
+</body>
+<script src='./templateWork.js'></script>
+<script>
+    (function() {
+
+        var a = tmpl.render({
+                tours: [{
+                    name: 1,
+                    price: '123'
+                }, {
+                    name: 2,
+                    price: '333'
+                }],
+                flag: [],
+                data: 'welcome to my page! You can check my demo in test.html!',
+                prop: {
+                    haha: [{
+                        ss: 'test1'
+                    }, {
+                        ss: 'test2'
+                    }]
+                }
+            },
+            `
+    <ul>
+        {{this.data}}
+        {{for this.tours}}
+        <li>
+            {{this.tours[i].name}} : price :{{this.tours[i].price}}
+            {{if this.flag}}
+            hahahah
+            {{/if}}
+        </li>
+        {{/for}}
+        
+        {{for this.prop.haha}}
+            <p>{{this.prop.haha[i].ss}}</p>
+        {{/for}}
+    </ul>
+    `,
+            function() {
+                return '????'
+            })
+        console.log(a);
+        console.log(typeof a);
+
+        document.body.innerHTML = a.toString();
+
+
+    })()
+</script>
+
+</html>
